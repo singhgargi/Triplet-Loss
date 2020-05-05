@@ -30,7 +30,24 @@ if __name__ == '__main__':
 	epochs = 10
 
 	#Replace with your own dataset.
-	(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+# 	(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+	
+	from keras.datasets import cifar10
+	import cv2
+	(X_train, y_train), (X_test, y_test) = cifar10.load_data()
+
+	data_upscaled1 = np.zeros((50000, 3, img_rows, img_cols))
+	for i, img in enumerate(X_train):
+	    im = img.reshape((1, 2, 0))
+	    large_img = cv2.resize(im, dsize=(img_rows, img_cols), interpolation=cv2.INTER_CUBIC)
+	    data_upscaled1[i] = large_img.reshape((2, 0, 1))
+	x_train = data_upscaled1 
+	data_upscaled2 = np.zeros((10000, 3, img_rows, img_cols))
+	for i, img in enumerate(X_test):
+	    im = img.reshape((1, 2, 0))
+	    large_img = cv2.resize(im, dsize=(img_rows, img_cols), interpolation=cv2.INTER_CUBIC)
+	    data_upscaled2[i] = large_img.reshape((2, 0, 1))
+	x_test = data_upscaled2
 	
 	#Size of training batch
 	batch_train = x_train.shape[0]

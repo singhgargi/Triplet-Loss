@@ -42,10 +42,10 @@ if __name__ == '__main__':
 	print(x_train.shape)
 	print(x_test.shape)
 	#Uncomment this to reshape images to a size acceptable by the CNN
-	'''
+	
 	x_train = x_train.reshape(batch_size, channels, img_rows, img_cols)
 	x_test = x_test.reshape(batch_size, channels, img_rows, img_cols)
-	'''
+
 
 	x_train = x_train.astype('float32')
 	x_test = x_test.astype('float32')
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 	#-----------------------------------------------------------------------------
 
 	#10 classes because dataset is Cifar-10
-	model = fine_tuned_model(10, (img_rows,img_cols,channels))
+	model = fine_tuned_model(10, (channels,img_rows,img_cols))
 	
 	#-----------------------------------------------------------------------------
 	#fit_generator is a method that fits the model on data that is 

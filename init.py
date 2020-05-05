@@ -59,7 +59,7 @@ if __name__ == '__main__':
 	#-----------------------------------------------------------------------------
 
 	#10 classes because dataset is Cifar-10
-	model = fine_tuned_model(10, (channels,img_rows,img_cols))
+	model = fine_tuned_model(10, (img_rows,img_cols,channels))
 	
 	#-----------------------------------------------------------------------------
 	#fit_generator is a method that fits the model on data that is 

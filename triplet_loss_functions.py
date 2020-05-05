@@ -1,5 +1,5 @@
 import tensorflow as tf
-tf.set_random_seed(1)
+tf.random.set_seed(1)
 
 def triplet_loss_func(y_true, y_pred, alpha=0.3):
 	'''

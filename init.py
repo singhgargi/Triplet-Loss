@@ -39,7 +39,8 @@ if __name__ == '__main__':
 
 	y_train = y_train.flatten()
 	y_test  = y_test.flatten()
-
+	print(x_train.shape)
+	print(x_test.shape)
 	#Uncomment this to reshape images to a size acceptable by the CNN
 	'''
 	x_train = x_train.reshape(batch_size, channels, img_rows, img_cols)
